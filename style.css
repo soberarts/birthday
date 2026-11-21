@@ -62,3 +62,11 @@ footer{border-top:1px solid #ffffff12;padding:25px 7vw;display:flex;justify-cont
 .club-small{margin-top:35px;color:#74847a}
 @keyframes clubBeat{to{height:100%}}@keyframes clubGlow{to{transform:scale(1.1) rotate(5deg);filter:blur(50px)}}
 @media(max-width:650px){.afterparty-teaser{align-items:flex-start;flex-direction:column;padding:28px}.afterparty-teaser:after{right:-35px}.afterparty-btn{margin-top:4px}.afterparty-inner h2{letter-spacing:-3px}.club-eq{gap:5px}}
+
+/* Birthday 24: personal media and music */
+.roni-photo{position:absolute;z-index:3;width:min(280px,74%);height:auto;bottom:-22px;left:50%;transform:translateX(-50%);border:1px solid #ffffff2b;border-radius:10px;box-shadow:0 14px 36px #000a;background:#000}
+.bonus-heading{margin:34px 0 16px}.bonus-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:42px}
+.music-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:40px 0 55px}.music-panel{min-width:0;background:#191919;border:1px solid #383838;border-radius:14px;padding:22px}.music-panel h3{font:700 25px 'Space Grotesk',sans-serif;margin:12px 0}.music-panel p:not(.eyebrow){color:#b7b7b7;line-height:1.5;font-size:13px;min-height:43px}.music-panel iframe{display:block;margin:18px 0 10px}.panel-link{color:#1ed760;font-size:12px;text-decoration:none;font-weight:800}.panel-link:hover{text-decoration:underline}
+.twitch-stream{background:linear-gradient(135deg,#21172f,#171717 65%);border-color:#6a44a3}.twitch-stream .stream-avatar{background:#9146ff}.twitch-button{display:inline-block;background:#9146ff;color:white;text-decoration:none;padding:12px 17px;border-radius:8px;font-size:13px;font-weight:800;margin-top:16px}.twitch-button:hover{background:#a970ff}.twitch-bottom{display:flex;gap:18px;justify-content:space-between;align-items:center;margin-top:20px;border-top:1px solid #ffffff1e;padding-top:18px}.twitch-bottom .fake-chat{flex:1;line-height:1.9}.monkey-photo{display:block;width:125px;max-width:33%;height:auto;border-radius:8px;border:1px solid #ffffff2a}
+@media(max-width:700px){.music-panels{grid-template-columns:1fr}.bonus-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.roni-photo{width:min(230px,70%);bottom:-15px}.monkey-photo{width:95px}}
+@media(max-width:380px){.bonus-grid{grid-template-columns:1fr}.twitch-bottom{align-items:flex-start}.monkey-photo{width:72px}}
