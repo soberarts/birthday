@@ -11,3 +11,32 @@ body,.system{background:#030206}
 .topbar{background:#09070e}.taskbar{background:#0a0710}.window{background:#08060df8;border-color:#795c9180;box-shadow:0 25px 90px #000e,0 0 30px #8e4fb30e}
 .window-bar{background:linear-gradient(90deg,#21152c,#100b17)}.window-content{background:#09070d}.app-icon{background:#090710bd}.icon-graphic{background:linear-gradient(130deg,#21132f,#08060b)}
 .status-strip{background:#050308dd}.music-dock{background:#09060e}.help-card{background:#0b0811}.takeover{background:radial-gradient(circle at center,#210b2d,#020104 75%)}
+
+/* RONI.OS — DARK CHROME / BLACK METAL REWORK */
+:root{--purple:#9862c9;--pink:#d75ba8;--cyan:#7e9aaf;--line:#c7b2e019;--silver:#d8d6dc;--dark:#030205}
+body,.system{background:#030205}.boot{background:radial-gradient(ellipse at 75% 44%,#180c20 0%,#07040b 38%,#010102 80%)}.workspace{background:radial-gradient(ellipse at 63% 44%,#190b20 0%,#060408 42%,#010102 87%)}.aurora{opacity:.48}.topbar{background:#08060a}.taskbar{background:#09060c}.window{background:#08060bee;border-color:#b9a1ce58;box-shadow:0 30px 100px #000e,0 0 60px #ad6ff011}.window.active{border-color:#cfb3e5aa}.window-bar{background:linear-gradient(90deg,#24132f,#0b080e)}.icon-graphic{background:linear-gradient(135deg,#1c1024,#050407);box-shadow:inset 0 0 18px #ad79d61a,0 0 18px #5e36751a}.app-icon{background:#09060eaa}.app-icon:hover{background:#1d1025}.desktop-copy h2,.boot h1{filter:drop-shadow(0 0 25px #a980ce16)}.primary{background:linear-gradient(110deg,#f0e8f5,#8c6ba3,#dfcbe9);color:#08040d;border-color:#ded2e7}.secondary{background:#100a16}.status-strip{background:#050307dd}.metal{background:linear-gradient(170deg,#ffffff 2%,#777680 13%,#f5f5ff 23%,#36323e 35%,#fff 49%,#55505e 61%,#e9e6ee 76%,#49434f 90%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 5px #f1e2ff20)}
+.cursor-aura{position:fixed;z-index:90;pointer-events:none;width:560px;height:560px;left:0;top:0;border-radius:50%;transform:translate3d(-50%,-50%,0);background:radial-gradient(circle,#d9b5ff26 0%,#b66de418 18%,#7c3aa70b 38%,transparent 69%);mix-blend-mode:screen;opacity:0;transition:opacity .3s;will-change:transform}.cursor-core{position:fixed;z-index:91;pointer-events:none;width:10px;height:10px;left:0;top:0;transform:translate3d(-50%,-50%,0);border:1px solid #f5e5ff;border-radius:50%;box-shadow:0 0 18px 4px #a970f499,0 0 45px 12px #b367ff44;opacity:0;transition:opacity .2s;will-change:transform}
+.window,.app-icon,.primary,.secondary,.top-btn,.record,.start-btn,.sound-btn{position:relative}.window:before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(380px circle at var(--mx,-999px) var(--my,-999px),#d4a9ff10,transparent 65%)}.window:after{content:'';position:absolute;inset:0;pointer-events:none;z-index:3;border:1px solid transparent;background:radial-gradient(250px circle at var(--mx,-999px) var(--my,-999px),#e7c7ffb0,transparent 72%) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}.window-bar,.window-content{position:relative;z-index:1}.window-bar{z-index:4}.chrome-ornament{position:absolute;pointer-events:none;z-index:0;filter:grayscale(.28) drop-shadow(0 0 30px #a467d02a)}.chrome-ornament img{display:block;width:100%;height:100%;object-fit:contain}.chrome-ornament-left{left:-8%;top:0;width:26vw;height:34vw;opacity:.18;transform:rotate(-26deg)}.chrome-ornament-right{right:22%;bottom:-13%;width:30vw;height:30vw;opacity:.25;transform:rotate(17deg)}.ambient-one{opacity:.56;filter:grayscale(.2) drop-shadow(0 0 20px #7b418a36)}.ambient-two{opacity:.26}.desktop-sticker{opacity:.6}.boot-art img{filter:brightness(.7) contrast(1.25) drop-shadow(0 0 60px #8d45a43b)}
+.audio-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:9px}.audio-actions button{background:#23122d;color:#f0d9ff;border:1px solid #a17cbd;padding:9px 12px;font:10px var(--mono)}.audio-actions span{font:9px var(--mono);color:#9885a4}.music-dock{background:#08050d}
+@media(pointer:coarse){.cursor-aura,.cursor-core{display:none}}
+@media(max-width:700px){.chrome-ornament-left{width:65vw;height:65vw;left:-25%;opacity:.13}.chrome-ornament-right{width:70vw;height:70vw;right:-20%;opacity:.16}}
+@media(prefers-reduced-motion:reduce){.cursor-aura,.cursor-core{display:none}}
+
+/* WASCHKUECHE / CHROME WORLD */
+.workspace{background:radial-gradient(ellipse at 58% 52%,#170d21 0%,#07050b 39%,#000 82%)}
+.chrome-gallery{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.chrome-piece{position:absolute;object-fit:contain;mix-blend-mode:screen;filter:brightness(.72) contrast(1.22) drop-shadow(0 0 16px #a767dd33);opacity:.48;transition:opacity .4s,filter .4s}
+.chrome-piece.crown{width:21%;left:38%;top:3%;transform:rotate(-10deg)}
+.chrome-piece.pillars{width:20%;left:3%;bottom:10%;opacity:.33}
+.chrome-piece.chains{width:22%;right:16%;bottom:4%;opacity:.27}
+.chrome-piece.heart{width:20%;right:17%;top:9%;opacity:.48}
+.chrome-piece.red{width:13%;left:40%;bottom:9%;opacity:.37}
+.workspace:hover .chrome-piece{filter:brightness(.9) contrast(1.2) drop-shadow(0 0 23px #b478f344)}
+.desktop-copy,.desktop-icons,.desktop-sticker{z-index:3}
+.laundry-boss{display:flex;flex-direction:column;align-items:center;gap:5px;margin:0 auto 10px;max-width:240px;animation:mouseEntrance 1s ease both}
+.laundry-boss img{width:min(190px,37vw);height:min(190px,37vw);object-fit:cover;border:2px solid #a46fb7;box-shadow:0 0 35px #b068f388;transform:rotate(-5deg);border-radius:50%}
+.laundry-boss span{font:9px var(--mono);color:#d2a3ee}
+.krabs-extra{display:flex;gap:12px;align-items:center;margin:16px 0;border:1px solid #623f78;padding:8px;font:9px var(--mono);color:#d7b1e9}
+.krabs-extra img{width:76px;height:76px;object-fit:cover}
+@keyframes mouseEntrance{from{transform:translateX(90vw) rotate(720deg) scale(.3)}to{transform:translateX(0) rotate(0) scale(1)}}
+@media(max-width:700px){.chrome-piece.crown{width:43%;left:44%;top:19%}.chrome-piece.pillars{width:35%;left:-12%;bottom:34%}.chrome-piece.chains{width:40%;right:-14%;bottom:28%}.chrome-piece.heart{width:36%;right:-7%;top:8%}.chrome-piece.red{width:23%;left:27%;bottom:35%}.laundry-boss img{width:110px;height:110px}.takeover h2{font-size:clamp(34px,8vw,58px)}}
