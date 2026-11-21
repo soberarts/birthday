@@ -1,0 +1,115 @@
+/* ================= RONI.FM / TECHNO-MAUS / CHROME POLISH ================= */
+:root{--chrome:linear-gradient(135deg,#fff 0%,#8c8898 18%,#f7f5ff 34%,#3d3946 52%,#e5e1ee 70%,#57525f 86%,#fff 100%)}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Techno-Maus-Cursor */
+html,body,.window-bar,.window-bar:active{cursor:url("cursor-mouse.svg") 2 2,auto}
+a,button,[role=tab],label,input[type=range],.app-icon,.runner{cursor:url("cursor-mouse-hover.svg") 2 2,pointer}
+.cursor-core{display:none!important}
+.cursor-aura{width:460px;height:460px}
+
+/* Chrome edges on key surfaces */
+.window,.help-card,.radio{border:1px solid transparent!important;background:linear-gradient(#08060bf7,#08060bf7) padding-box,linear-gradient(140deg,#ffffffb0,#6d6878 22%,#f3efffcc 38%,#2b2731 58%,#cfc8dcaa 78%,#4a4553) border-box!important}
+.window.active{box-shadow:0 30px 100px #000e,0 0 70px #b07aff22}
+.primary{background:linear-gradient(105deg,#fbf8ff 0%,#a79cb6 22%,#f4ecff 40%,#6f5b86 62%,#ece2f6 82%,#b9a7cb 100%);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #0006,0 6px 24px #9b62c933;color:#0a0510;text-shadow:0 1px 0 #ffffff80}
+.primary:focus-visible,.secondary:focus-visible,.top-btn:focus-visible,.record:focus-visible,.fm-mini button:focus-visible,.radio button:focus-visible,.app-icon:focus-visible,.runner:focus-visible{outline:2px solid #e3c4ff;outline-offset:3px}
+.app-icon:hover .icon-graphic{box-shadow:inset 0 0 18px #ad79d64d,0 0 0 1px #fff6,0 0 26px #b07aff55}
+.beat-flash{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;background:radial-gradient(ellipse at 50% 60%,#b57aff2e,transparent 60%)}
+.status-strip b{color:#f1d9ff;font-weight:500}
+.vault-actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+
+/* Artist records as buttons */
+.record{width:100%;text-align:left;color:#f1eff9;font:inherit;flex-wrap:nowrap}
+.record-tag{display:block}.record-play{display:block;font:9px var(--mono);color:#dcaeff;margin-top:2px;letter-spacing:.4px}
+.record:hover .record-art{animation:spin 1.4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---- Taskbar mini player ---- */
+.fm-mini{display:flex;align-items:center;gap:8px;margin-left:auto;flex:none}
+.fm-toggle{display:flex;align-items:center;gap:9px;height:44px;padding:0 12px 0 6px;border:1px solid transparent;background:linear-gradient(#170e20,#170e20) padding-box,var(--chrome) border-box;color:#f4e9ff;font:10px var(--mono);letter-spacing:.6px}
+.fm-toggle:hover{background:linear-gradient(#2a1838,#2a1838) padding-box,var(--chrome) border-box}
+.fm-toggle[aria-expanded=true]{background:linear-gradient(#35204a,#35204a) padding-box,var(--chrome) border-box}
+.fm-toggle.live{box-shadow:0 0 22px #b07aff40}
+.fm-mouse{width:30px;height:36px;object-fit:contain;filter:drop-shadow(0 0 6px #b98cff66)}
+.beat-led{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3a2a46;box-shadow:inset 0 0 2px #000}
+.beat-led.on{animation:led .32s ease-out}
+@keyframes led{0%{background:#ff8fe0;box-shadow:0 0 12px 3px #ff5fcf}100%{background:#3a2a46;box-shadow:none}}
+.fm-play{width:44px;height:44px;display:grid;place-items:center;border:1px solid transparent;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#bdb6c9 30%,#5a5466 70%,#d7d0e2) padding-box,var(--chrome) border-box;color:#0b0710;padding:0;box-shadow:0 0 18px #b07aff33,inset 0 -2px 4px #0005;flex:none}
+.fm-play svg{width:17px;height:17px}
+.fm-play:hover{filter:brightness(1.12);box-shadow:0 0 26px #c592ff66}
+.fm-play.big{width:52px;height:52px}
+.vol{display:flex;align-items:center;gap:8px;font:9px var(--mono);color:#cdb9df}
+.vol input{-webkit-appearance:none;appearance:none;width:120px;height:24px;background:transparent;margin:0}
+.vol input::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:linear-gradient(90deg,#f6efff,#a77fd2 var(--fill,30%),#231a2b var(--fill,30%));box-shadow:inset 0 1px 2px #000a,0 0 0 1px #ffffff1e}
+.vol input::-moz-range-track{height:6px;border-radius:6px;background:#231a2b}
+.vol input::-moz-range-progress{height:6px;border-radius:6px;background:linear-gradient(90deg,#f6efff,#a77fd2)}
+.vol input::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-7px;border-radius:50%;border:1px solid #0b0710;background:radial-gradient(circle at 35% 30%,#fff,#bdb6c9 35%,#4f4a5a 72%,#e6e0ee);box-shadow:0 0 12px #c592ff88}
+.vol input::-moz-range-thumb{width:20px;height:20px;border-radius:50%;border:1px solid #0b0710;background:radial-gradient(circle at 35% 30%,#fff,#bdb6c9 35%,#4f4a5a 72%,#e6e0ee);box-shadow:0 0 12px #c592ff88}
+.mini-vol input{width:96px}
+
+/* ---- Radio dock ---- */
+.radio{position:fixed;right:18px;bottom:74px;width:min(380px,calc(100vw - 36px));z-index:125;box-shadow:0 24px 80px #000e,0 0 50px #a86cf01f;animation:dockIn .32s cubic-bezier(.2,.9,.3,1.1)}
+.radio[hidden]{display:none}
+@keyframes dockIn{from{opacity:0;transform:translateY(14px) scale(.98)}}
+.radio-head{display:flex;justify-content:space-between;align-items:center;height:38px;padding-left:12px;font:10px var(--mono);letter-spacing:.5px;color:#f3e3ff;background:linear-gradient(90deg,#24132f,#0b080e);border-bottom:1px solid #ffffff22}
+.radio-close{height:100%;width:42px;border:0;border-left:1px solid #ffffff22;background:none;color:#fff;font-size:20px}
+.radio-close:hover{background:#7b45b8}
+.radio-stage{position:relative;display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:end;padding:14px 14px 12px;overflow:hidden;background:radial-gradient(ellipse at 22% 100%,#5b2c8a55,transparent 60%),repeating-linear-gradient(90deg,#ffffff05 0 1px,transparent 1px 22px)}
+.turntable{position:absolute;left:12px;bottom:8px;width:124px;height:30px;border-radius:50%;background:conic-gradient(from 0deg,#fff,#58536a,#f5f2ff,#2a2630,#dcd6e8,#5c5769,#fff);box-shadow:0 0 30px #b07aff55,inset 0 0 0 5px #0b0710aa}
+.turntable i{position:absolute;inset:9px 40px;border-radius:50%;background:#0b0710}
+html[data-music=local] .turntable,html[data-music=spotify] .turntable{animation:tt 1.2s linear infinite}
+@keyframes tt{to{filter:hue-rotate(360deg)}}
+.dj-mouse{position:relative;z-index:1;width:118px;height:148px;object-fit:contain;margin:0 0 14px 6px;transform-origin:50% 100%;filter:drop-shadow(0 6px 10px #000c) drop-shadow(0 0 16px #b98cff40)}
+html[data-music=idle] .dj-mouse{animation:idleSway 3.2s ease-in-out infinite}
+@keyframes idleSway{50%{transform:rotate(-2.5deg) translateY(-2px)}}
+.dj-mouse.sulk{transform:scaleX(-1) rotate(4deg);filter:grayscale(.8) drop-shadow(0 6px 10px #000c);animation:none!important}
+.radio-meta{display:flex;flex-direction:column;gap:6px;min-width:0;padding-bottom:4px}
+.radio-kicker{font:9px var(--mono);letter-spacing:1.4px;color:#b892da}
+.radio-meta strong{font:800 22px/1 'Syne';letter-spacing:-.04em;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent;overflow-wrap:anywhere}
+.bpm{font:10px var(--mono);color:#e6d2f6;display:flex;align-items:center;gap:7px}
+.radio-eq{display:flex;align-items:flex-end;gap:3px;height:38px}
+.radio-eq i{flex:1;height:100%;transform-origin:50% 100%;transform:scaleY(.06);background:linear-gradient(0deg,#5a2f86,#b98cff 45%,#fff);border-radius:2px 2px 0 0;transition:transform .07s linear}
+.dj-quote{font:9px/1.5 var(--mono);color:#ff9ddd;min-height:27px}
+.radio-tabs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #ffffff1c;border-bottom:1px solid #ffffff1c}
+.radio-tabs button{height:40px;border:0;background:#0d0912;color:#a996b8;font:10px var(--mono);letter-spacing:.6px}
+.radio-tabs button+button{border-left:1px solid #ffffff1c}
+.radio-tabs button[aria-selected=true]{background:linear-gradient(180deg,#2a1838,#120b18);color:#fff;box-shadow:inset 0 -2px 0 #d7b4ff}
+.radio-panel{padding:12px 14px 14px}
+.radio-panel[hidden]{display:none}
+.radio-controls{display:flex;align-items:center;gap:14px}
+.radio-controls .vol{flex:1}.radio-controls .vol input{flex:1;width:auto}
+.radio-controls output{font:11px var(--mono);color:#fff;min-width:24px;text-align:right}
+.spotify-slot{min-height:152px;border-radius:12px;overflow:hidden;background:#120b18}
+.spotify-slot iframe{display:block;border:0;border-radius:12px}
+.radio .note{margin:10px 0 0}
+
+/* ---- Waschküchen-Mäuse ---- */
+.mouse-lane{position:fixed;left:0;right:0;bottom:61px;height:0;z-index:120;pointer-events:none}
+.runner{position:absolute;left:0;bottom:-3px;width:var(--s,64px);padding:0;border:0;background:none;pointer-events:auto;will-change:transform}
+.runner .jump{display:block;transform-origin:50% 100%}
+.runner .body{display:block;transform:scaleX(var(--dir,1));transform-origin:50% 100%}
+.runner img{display:block;width:100%;height:auto;transform-origin:50% 100%;filter:drop-shadow(0 4px 5px #000b) drop-shadow(0 0 10px #b98cff44)}
+.runner.running img{animation:scurry .19s ease-in-out infinite alternate}
+.runner.running.fast img{animation-duration:.11s}
+.runner.moonwalk img{animation:glide .5s ease-in-out infinite alternate}
+.runner.dancing img{animation:runnerDance .46s ease-in-out infinite alternate}
+.runner.running .body::after{content:'';position:absolute;bottom:2px;left:-14px;width:16px;height:8px;border-radius:50%;background:#d8c8e866;filter:blur(3px);animation:dust .3s linear infinite}
+@keyframes scurry{from{transform:translateY(0) rotate(7deg)}to{transform:translateY(-8px) rotate(-2deg)}}
+@keyframes glide{from{transform:rotate(-4deg)}to{transform:rotate(-8deg) translateY(-2px)}}
+@keyframes runnerDance{from{transform:rotate(-9deg) translateY(0)}to{transform:rotate(9deg) translateY(-10px)}}
+@keyframes dust{from{opacity:.9;transform:scale(.5)}to{opacity:0;transform:scale(1.6) translateY(-4px)}}
+.bubble{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);width:max-content;max-width:220px;padding:8px 10px;font:9px/1.45 var(--mono);letter-spacing:.3px;color:#0b0710;text-align:center;background:linear-gradient(135deg,#fff,#d6cfe0 45%,#fff 70%,#b9b0c6);border:1px solid #0b0710;box-shadow:0 8px 24px #000a,0 0 18px #b98cff55;animation:pop .25s cubic-bezier(.2,.9,.3,1.4)}
+.bubble:after{content:'';position:absolute;top:100%;left:50%;margin-left:-6px;border:6px solid transparent;border-top-color:#0b0710}
+@keyframes pop{from{opacity:0;transform:translateX(-50%) scale(.6) translateY(8px)}}
+
+/* ---- Screensaver ---- */
+.screensaver{position:fixed;inset:0;z-index:300;background:#000;overflow:hidden}
+.ss-mouse{position:absolute;left:0;top:0;width:150px;will-change:transform}
+.ss-mouse img{display:block;width:100%;filter:drop-shadow(0 0 24px #b98cff55)}
+.ss-label,.ss-corner{position:absolute;left:24px;font:10px var(--mono);letter-spacing:1.5px;color:#7d6a8e}
+.ss-label{top:20px}.ss-corner{bottom:20px;color:#b892da}
+
+/* Responsive */
+@media(max-width:1000px){.mini-vol{display:none}}
+@media(max-width:700px){.fm-toggle>span:not(.fm-mouse-wrap){display:none}.fm-toggle{padding:0 8px 0 4px;height:40px}.fm-play{width:40px;height:40px}.radio{right:8px;left:8px;width:auto;bottom:62px}.mouse-lane{bottom:55px}.radio-stage{grid-template-columns:104px 1fr}.dj-mouse{width:96px;height:120px}.turntable{width:100px}.status-strip span:nth-child(3){display:none}}
+@media(prefers-reduced-motion:reduce){.mouse-lane{display:none!important}}

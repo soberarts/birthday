@@ -1,0 +1,44 @@
+/* ================= AHRI (Mrs Ronis Katze) ================= */
+.ahri .ahri-svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 4px 5px #000b) drop-shadow(0 0 10px #b98cff33);transition:transform .2s}
+.ah-leg,.ah-tail,.ah-head{transform-box:fill-box}
+.ah-leg{transform-origin:50% 0}
+.ah-tail{transform-origin:100% 100%;animation:ahTail 1.3s ease-in-out infinite alternate}
+.ah-head{transform-origin:50% 90%}
+.runner.ahri{bottom:-2px}
+.ahri.running .ah-fl,.ahri.running .ah-br{animation:ahLegA .24s ease-in-out infinite alternate}
+.ahri.running .ah-fr,.ahri.running .ah-bl{animation:ahLegB .24s ease-in-out infinite alternate}
+.ahri.running.fast .ah-leg{animation-duration:.14s}
+.ahri.running .ahri-svg{animation:ahBob .24s ease-in-out infinite alternate}
+.ahri.running.fast .ahri-svg{animation-duration:.14s}
+.ahri.pawing .ah-fr{animation:ahSwipe .43s ease-in-out infinite}
+.ahri.pawing .ah-head{animation:ahTilt .86s ease-in-out infinite alternate}
+.ahri.talking .ah-head{animation:ahTilt 1.4s ease-in-out infinite alternate}
+.ahri.dancing .ahri-svg{animation:ahDance .45s ease-in-out infinite alternate}
+.ahri.skid .ahri-svg{transform:rotate(-12deg) translateX(10px)}
+.ahri.puff .ahri-svg{transform:scale(1.14,1.1)}
+.ahri.puff .ah-tail path:first-child{stroke-width:7}
+.ahri.puff .ah-pupil{transform-box:fill-box;transform-origin:50% 50%;transform:scale(2.4,1.1)}
+@keyframes ahLegA{from{transform:rotate(30deg)}to{transform:rotate(-30deg)}}
+@keyframes ahLegB{from{transform:rotate(-30deg)}to{transform:rotate(30deg)}}
+@keyframes ahTail{from{transform:rotate(-6deg)}to{transform:rotate(10deg)}}
+@keyframes ahBob{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+@keyframes ahSwipe{0%,100%{transform:rotate(0)}45%{transform:rotate(-82deg) translateY(-4px)}}
+@keyframes ahTilt{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+@keyframes ahDance{from{transform:rotate(-8deg) translateY(0)}to{transform:rotate(8deg) translateY(-9px)}}
+
+/* Ahri on the desktop (knocking icons off the table) */
+.ahri-actor{position:absolute;left:0;top:0;z-index:6;padding:0;border:0;background:none;will-change:transform}
+.ahri-actor .body{display:block;transform:scaleX(var(--dir,1))}
+.ahri-actor .bubble{bottom:calc(100% + 4px)}
+.ahri-heart{position:fixed;z-index:270;pointer-events:none;color:#ff8fe0;font-size:20px;text-shadow:0 0 8px #ff5fcf}
+
+/* Wollknäuel-Taxi */
+.runner.on-yarn .jump{transform:translateY(-30px)}
+.runner.on-yarn img{animation:talkBob .22s ease-in-out infinite alternate}
+.runner .yarn{position:absolute;left:50%;bottom:-5px;width:50px;margin-left:-25px;pointer-events:none}
+.runner .yarn svg{display:block;width:100%;animation:yarnRoll .5s linear infinite}
+.runner.talking .yarn svg{animation-play-state:paused}
+@keyframes yarnRoll{to{transform:rotate(calc(360deg * var(--dir,1)))}}
+.clock-hacked{color:#ff8fe0!important;animation:pulse .5s infinite}
+@media(prefers-reduced-motion:reduce){.ahri-actor{display:none}}
+.runner.on-yarn>.bubble{bottom:calc(100% + 48px)}
