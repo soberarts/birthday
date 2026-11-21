@@ -28,8 +28,24 @@ let chatIndex=0;const lines=[['DJ_LUIGI','SOMEONE TURN UP THE BASS'],['MOE_FAN',
 
 /* Dark Chrome mouse aura: follows cursor and lights up active window edges. */
 (()=>{const aura=document.getElementById('cursorAura'),core=document.getElementById('cursorCore');if(!aura||!core||!matchMedia('(pointer:fine)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;let x=-600,y=-600,tx=-600,ty=-600;document.addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;aura.style.opacity='1';core.style.opacity='1';core.style.left=tx+'px';core.style.top=ty+'px';const w=e.target.closest('.window');if(w){const r=w.getBoundingClientRect();w.style.setProperty('--mx',(e.clientX-r.left)+'px');w.style.setProperty('--my',(e.clientY-r.top)+'px')}},{passive:true});document.addEventListener('pointerleave',()=>{aura.style.opacity='0';core.style.opacity='0'});function tick(){x+=(tx-x)*.17;y+=(ty-y)*.17;aura.style.left=x+'px';aura.style.top=y+'px';requestAnimationFrame(tick)}tick()})();
-/* Optional local soundtrack. A real MP3 must be added by the owner. */
-(()=>{const audio=document.getElementById('localSoundtrack'),btn=document.getElementById('localAudioToggle'),status=document.getElementById('audioStatus'),enter=document.getElementById('enter');if(!audio||!btn||!enter)return;audio.volume=.18;let missing=false;audio.addEventListener('error',()=>{missing=true;status.textContent='MP3 FEHLT — SPOTIFY NUTZEN';btn.textContent='▶ MP3 NICHT VERFÜGBAR'});audio.addEventListener('play',()=>{status.textContent='LOKALE MUSIK LÄUFT';btn.textContent='Ⅱ PAUSE'});audio.addEventListener('pause',()=>{if(!missing){status.textContent='PAUSIERT';btn.textContent='▶ WEITER'}});function start(){if(missing)return;audio.play().then(()=>{}).catch(()=>{status.textContent='BITTE MANUELL PLAY DRÜCKEN'})}enter.addEventListener('click',start);btn.addEventListener('click',()=>{if(audio.paused)start();else audio.pause()})})();
+/* Background music: starts on ENTER click, without an extra player. */
+(()=>{
+ const audio=document.getElementById('localSoundtrack');
+ const enter=document.getElementById('enter');
+ if(!audio||!enter)return;
+ audio.volume=0.13;
+ audio.loop=true;
+ audio.preload='auto';
+ enter.addEventListener('click',()=>{
+   audio.muted=false;
+   const attempt=audio.play();
+   if(attempt&&typeof attempt.catch==='function')attempt.catch(()=>{
+     // Browser policy fallback: make the next user interaction start playback.
+     const retry=()=>{audio.play().then(()=>document.removeEventListener('pointerdown',retry)).catch(()=>{});};
+     document.addEventListener('pointerdown',retry);
+   });
+ });
+})();
 
 // RONI.OS: Mouse capture system rescue minigame
 const $=(selector)=>document.querySelector(selector);
