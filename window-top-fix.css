@@ -1,0 +1,11 @@
+/* Keep every desktop app anchored at a visible top position. */
+@media(min-width:701px){
+ .workspace .window{top:14px!important;left:60px!important;
+   max-height:calc(100% - 28px)!important;
+   transform:none!important;
+   margin:0!important;
+ }
+ .workspace .window.visible{display:flex!important}
+ .workspace .window-bar{position:relative!important;z-index:15!important;cursor:grab!important;touch-action:none!important}
+ .workspace .window-content{min-height:0!important;overflow-y:auto!important}
+}
