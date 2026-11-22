@@ -1,0 +1,9 @@
+RONI.UNIVERSE — KOMPLETTE NEON CHROME VERSION + GEBURTSTAGSGRUSS
+
+Diese ZIP enthält BEIDES: kräftiges Neon-Lila, Chrome-Details, wenige grüne Akzente UND den neuen Satz im Geburtstagsgruß.
+
+WICHTIG: ZIP entpacken und ALLE Dateien ins GitHub-Repository hochladen. Alte Dateien mit gleichem Namen überschreiben. Auch index.html muss ersetzt werden.
+
+Das Neon-Chrome-CSS ist zusätzlich direkt in index.html integriert, damit es nicht durch einen fehlenden CSS-Upload verschwindet.
+
+Nach GitHub-Commit die Seite im privaten Browserfenster öffnen oder mit Strg+Shift+R aktualisieren.

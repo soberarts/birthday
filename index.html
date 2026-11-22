@@ -1,6 +1,118 @@
 <!DOCTYPE html>
 
-<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#020104" name="theme-color"/><title>Roni.Universe / BIRTHDAY PROTOCOL 024</title><meta content="Eine private Geburtstags-Frequenz für Roni." name="description"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="style.css?v=25" rel="stylesheet"/><link href="fm.css?v=25" rel="stylesheet"/><link href="apps.css?v=33" rel="stylesheet"/><link href="ahri.css?v=4" rel="stylesheet"/><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script><link href="universe.css?v=1" rel="stylesheet"/></head>
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#020104" name="theme-color"/><title>Roni.Universe / BIRTHDAY PROTOCOL 024</title><meta content="Eine private Geburtstags-Frequenz für Roni." name="description"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="style.css?v=25" rel="stylesheet"/><link href="fm.css?v=25" rel="stylesheet"/><link href="apps.css?v=33" rel="stylesheet"/><link href="ahri.css?v=4" rel="stylesheet"/><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script><link href="universe.css?v=20261122-2" rel="stylesheet"/><style id="universe-neon-baked">
+/* Roni.Universe — neon-chrome visual identity.
+   Extra CSS layer: keeps the existing desktop, interactions and audio intact. */
+:root{
+ --purple:#cb55ff; --pink:#ff43de; --cyan:#99eaff;
+ --line:rgba(212,140,255,.32); --silver:#f0e9ff;
+ --universe-violet:#a900ff; --universe-acid:#c5ff56;
+}
+html,body,.system{background:#020104!important}
+.boot{background:radial-gradient(ellipse at 72% 44%,#270039 0%,#09020f 39%,#020104 79%)!important}
+.workspace{
+ background:
+ radial-gradient(ellipse at 62% 43%,rgba(140,0,255,.18),transparent 46%),
+ radial-gradient(ellipse at 16% 88%,rgba(240,0,255,.07),transparent 44%),
+ #020104!important
+}
+.aurora{opacity:.56}
+.topbar,.taskbar{background:#09030f!important;border-color:rgba(205,76,255,.42)!important}
+.brand{font-family:'Syne',sans-serif!important;font-weight:800!important;letter-spacing:-.075em!important;
+ text-shadow:0 0 17px rgba(205,45,255,.36)}
+.brand span{color:#ed9cff!important;text-shadow:0 0 19px rgba(201,40,255,.9)}
+.boot h1,.desktop-copy h2{
+ font-family:'Syne',sans-serif!important;
+ font-weight:800!important;
+ letter-spacing:-.095em!important;
+ text-transform:uppercase;
+ text-shadow:0 4px 0 rgba(0,0,0,.7),0 0 30px rgba(193,37,255,.23);
+}
+.boot h1 .metal,.desktop-copy h2 .metal,.window-content h3 .metal,.takeover h2 .metal{
+ background:linear-gradient(165deg,#fff 0%,#8d7ca1 9%,#fff 18%,#464153 31%,#f9faff 42%,#8a769f 56%,#fff 64%,#4e405d 78%,#f2edff 91%);
+ background-size:200% 200%;
+ -webkit-background-clip:text;background-clip:text;color:transparent;
+ filter:drop-shadow(0 0 12px rgba(218,153,255,.24));
+}
+.boot h1{font-size:clamp(54px,7.4vw,120px)!important}
+.desktop-copy h2{font-size:clamp(58px,8.3vw,135px)!important}
+.desktop-copy .purple{color:#e167ff;text-shadow:0 0 25px #bb00ff}
+.window,.help-card,.rescue-game{
+ border-color:rgba(219,123,255,.55)!important;
+ box-shadow:0 24px 70px rgba(0,0,0,.8),0 0 28px rgba(175,0,255,.11),inset 0 0 0 1px rgba(255,255,255,.035)!important;
+}
+.window{background:rgba(8,3,13,.97)!important}
+.window.active{box-shadow:0 30px 90px #000e,0 0 38px rgba(186,25,255,.26)!important}
+.window-bar{background:linear-gradient(90deg,#280839,#120719 62%,#1b0629)!important;border-bottom-color:#ae36d177!important}
+.primary,.secondary,.action-link,.top-btn,.start-btn,.sound-btn,.task-items button{
+ transition:transform .22s ease,box-shadow .22s ease,background .22s ease,filter .22s ease;
+}
+.primary{
+ background:linear-gradient(115deg,#f2bcff,#d452ff 52%,#9a16f6)!important;
+ border-color:#e7a0ff!important;
+ box-shadow:0 0 16px #bd29ff33,inset 0 1px 0 #fff8!important;
+ color:#17051f!important
+}
+.primary:hover,.secondary:hover,.action-link:hover{
+ box-shadow:0 0 25px rgba(216,67,255,.5),0 0 45px rgba(216,67,255,.18)!important;
+}
+.app-icon:hover,.app-icon:focus-visible{
+ border-color:#df7dff!important;background:rgba(88,10,130,.5)!important;
+ box-shadow:0 0 20px rgba(184,26,255,.25)!important;
+}
+.icon-graphic{border-color:#a741d7!important;box-shadow:0 0 14px #8e00c52e,inset 0 0 17px #c600ff22!important}
+.signal{background:#d45dff!important;box-shadow:0 0 13px #d300ff!important}
+.window-content .subhead,.system-label,.boot-kicker{color:#e3a7ff!important}
+.record:hover{border-color:#db67ff!important}
+.status-strip{background:rgba(4,1,8,.86)!important}
+.ambient-one,.ambient-two{mix-blend-mode:screen;filter:drop-shadow(0 0 26px #bc20ff25)}
+/* Chrome forms around headings, visually small and deliberately restrained. */
+.desktop-copy{isolation:isolate}
+.desktop-copy:before{
+ content:"";position:absolute;z-index:-1;left:-55px;top:-32px;width:155px;height:165px;
+ background:url("chrome-silver.png") center/contain no-repeat;opacity:.3;pointer-events:none;
+ filter:drop-shadow(0 0 11px rgba(238,212,255,.23));
+ transform:rotate(-16deg);
+}
+.desktop-copy:after{
+ content:"";position:absolute;right:-50px;bottom:-18px;width:80px;height:85px;
+ background:url("chrome-bolt.png") center/contain no-repeat;opacity:.62;pointer-events:none;
+ filter:drop-shadow(0 0 14px rgba(213,50,255,.24));
+ transform:rotate(14deg);
+}
+.universe-glyph{position:absolute;left:-27px;top:-26px;width:58px;height:2px;
+ background:linear-gradient(90deg,transparent,#e2aaff,#fff,transparent);
+ box-shadow:0 0 16px #b000ff;transform:rotate(-28deg);pointer-events:none}
+.window-content h3{position:relative;letter-spacing:-.07em!important;text-shadow:0 0 22px rgba(176,28,255,.16)}
+.window-content h3:after{content:"✧";position:relative;top:-.45em;left:9px;
+ font:500 .35em 'Syne',sans-serif;color:#c6b5d0;text-shadow:0 0 11px #d552ff;opacity:.72}
+.window-content{background-image:linear-gradient(130deg,transparent 0 83%,rgba(179,27,255,.04) 100%)}
+.window:before{
+ content:"";position:absolute;top:41px;right:0;width:70px;height:70px;pointer-events:none;z-index:1;
+ background:url("chrome-silver.png") center/contain no-repeat;opacity:.19;mix-blend-mode:screen;
+ transform:translate(18px,-24px) rotate(22deg)
+}
+.boot-art img{filter:drop-shadow(0 0 37px rgba(169,0,255,.3))!important}
+.boot-main{position:relative}
+.boot-main:after{
+ content:"";position:absolute;right:3%;top:-7%;width:95px;height:95px;pointer-events:none;
+ background:url("chrome-bolt.png") center/contain no-repeat;opacity:.66;
+ filter:drop-shadow(0 0 17px rgba(173,55,255,.36))
+}
+/* Tiny acid-green status micro-details, not a second primary color. */
+.boot-bottom span:last-child,.status-strip span:last-child{color:#c5ff56!important}
+.topcenter i{background:#c5ff56!important;box-shadow:0 0 8px rgba(197,255,86,.7)}
+.window-controls button:hover{background:#ad18e5!important}
+@media(max-width:700px){
+ .boot h1{font-size:clamp(45px,12vw,75px)!important}
+ .desktop-copy h2{font-size:clamp(50px,12.2vw,80px)!important}
+ .desktop-copy:before{width:90px;height:90px;left:-15px;top:-24px;opacity:.23}
+ .desktop-copy:after{width:45px;height:50px;right:5px;bottom:0}
+ .boot-main:after{width:52px;height:52px;right:0;top:-25px}
+ .window:before{width:42px;height:42px}
+}
+@media(prefers-reduced-motion:reduce){.primary,.secondary,.action-link{transition:none!important}}
+</style></head>
 <body>
 <div aria-hidden="true" class="grain"></div><div aria-hidden="true" class="cursor-aura" id="cursorAura"></div><div aria-hidden="true" class="cursor-core" id="cursorCore"></div>
 <section aria-label="Startbildschirm" class="boot" id="boot"><div class="boot-top"><span>Roni.Universe <em>© 2002—2026</em></span><span>PRIVATE ACCESS / 024</span></div><div class="boot-grid"><div class="boot-main"><div class="boot-kicker"><span class="signal"></span> BIRTHDAY PROTOCOL DETECTED</div><h1>NOT YOUR<br/>AVERAGE<br/><span class="metal">BIRTHDAY.</span></h1><p>IDENTITY FOUND: <b>RONI</b> <span class="violet">/</span> LEVEL <b>24</b><br/>ONE CONNECTION. INFINITE FREQUENCIES.</p><button class="primary" id="enter">ENTER Roni.Universe <span>↗</span></button><p class="micro">KOPFHÖRER EMPFOHLEN. ABSURDITÄT GARANTIERT.</p></div><div class="boot-art"><img alt="Futuristisches silbernes Chrome-Objekt" src="chrome-disc.jpg"/><span class="art-caption">OBJECT_024 // LIQUID MEMORY</span></div></div><div class="boot-bottom"><span>LOADING PERSONAL UNIVERSE</span><span>■■■■■■■■■■■■ 100%</span></div></section>
