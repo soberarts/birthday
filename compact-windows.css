@@ -1,0 +1,16 @@
+
+/* Compact, accessible desktop windows. */
+@media(min-width:701px){
+ .window{box-sizing:border-box!important;max-height:min(72vh,calc(100% - 32px))!important;
+   min-height:0!important;min-width:0!important}
+ .window-bar{height:38px!important;min-height:38px!important;flex-shrink:0!important}
+ .window-content{padding:17px 20px 22px!important;min-height:0!important;overflow:auto!important}
+ .window-content h3{font-size:clamp(24px,2.7vw,38px)!important;margin:8px 0 12px!important}
+ .window-content>p{font-size:13px!important}
+ .window-controls button{width:38px!important}
+}
+@media(max-width:700px){
+ .window{top:8px!important;left:8px!important;width:calc(100% - 16px)!important;
+  height:calc(100% - 16px)!important;max-height:calc(100% - 16px)!important}
+ .window-content{overflow:auto!important}
+}
