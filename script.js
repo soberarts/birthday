@@ -5,25 +5,7 @@ const names={discord:'DISCORD ARCHIVE',music:'MUSIC VAULT',photos:'RONI MEMORIES
 const stack=[];let z=20;let active=null;let toastTimer;
 function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2700)}
 function taskbar(){const host=$('#taskItems');host.replaceChildren();for(const id of stack){const b=document.createElement('button');b.textContent=names[id];b.className=id===active?'active':'';b.addEventListener('click',()=>open(id));host.appendChild(b)}}
-function open(id){const w=$('#win-'+id);if(!w)return;
-  // Always open near the TOP of the desktop; CSS !important rules must not override this.
-  if(!matchMedia('(max-width:700px)').matches){
-    const area=$('#workspace').getBoundingClientRect();
-    const visibleCount=$$('.window.visible').filter(x=>x!==w).length;
-    const offset=(visibleCount%4)*16;
-    const preferred=parseFloat(getComputedStyle(w).getPropertyValue('--ww'))||520;
-    w.style.setProperty('width',Math.min(preferred,Math.max(280,area.width-32))+'px','important');
-    w.style.setProperty('max-height',Math.max(180,Math.min(area.height-28,area.height*.68))+'px','important');
-    w.style.setProperty('left',Math.max(12,Math.min(60+offset,area.width-w.offsetWidth-12))+'px','important');
-    w.style.setProperty('top',(14+offset)+'px','important');
-  }
-  w.classList.add('visible','active');w.setAttribute('aria-hidden','false');
-  if(!matchMedia('(max-width:700px)').matches){
-    const area=$('#workspace').getBoundingClientRect();
-    w.style.setProperty('left',Math.max(12,Math.min(parseFloat(w.style.left)||12,area.width-w.offsetWidth-12))+'px','important');
-    w.style.setProperty('top',Math.max(12,Math.min(parseFloat(w.style.top)||12,area.height-w.offsetHeight-12))+'px','important');
-  }
-$$('.window').forEach(x=>{if(x!==w)x.classList.remove('active')});w.style.zIndex=++z;active=id;if(!stack.includes(id))stack.push(id);taskbar();if(matchMedia('(max-width:700px)').matches){const b=document.createElement('button');b.className='mobile-back';b.textContent='← BACK TO DESKTOP';b.style.cssText='border:0;background:#2c183b;color:#fff;padding:10px 12px;font:10px "DM Mono",monospace;width:100%;text-align:left';b.addEventListener('click',()=>minimize(id));const content=$('.window-content',w);if(!$('.mobile-back',w))w.insertBefore(b,content)}}
+function open(id){const w=$('#win-'+id);if(!w)return;w.classList.add('visible','active');w.setAttribute('aria-hidden','false');$$('.window').forEach(x=>{if(x!==w)x.classList.remove('active')});w.style.zIndex=++z;active=id;if(!stack.includes(id))stack.push(id);taskbar();if(matchMedia('(max-width:700px)').matches){const b=document.createElement('button');b.className='mobile-back';b.textContent='← BACK TO DESKTOP';b.style.cssText='border:0;background:#2c183b;color:#fff;padding:10px 12px;font:10px "DM Mono",monospace;width:100%;text-align:left';b.addEventListener('click',()=>minimize(id));const content=$('.window-content',w);if(!$('.mobile-back',w))w.insertBefore(b,content)}}
 window.RONI=Object.assign(window.RONI||{},{open:id=>open(id),toast});
 const ws=$('#workspace');ws.addEventListener('scroll',()=>{if(ws.scrollTop||ws.scrollLeft){ws.scrollTop=0;ws.scrollLeft=0}});
 function minimize(id){const w=$('#win-'+id);w.classList.remove('visible','active');w.setAttribute('aria-hidden','true');active=null;taskbar()}
@@ -32,7 +14,7 @@ $$('[data-open]').forEach(b=>b.addEventListener('click',()=>open(b.dataset.open)
 $$('[data-minimize]').forEach(b=>b.addEventListener('click',()=>minimize(b.dataset.minimize)));
 $$('[data-close]').forEach(b=>b.addEventListener('click',()=>close(b.dataset.close)));
 $$('.window').forEach(w=>{w.addEventListener('pointerdown',()=>{if(w.classList.contains('visible')){w.style.zIndex=++z;active=w.id.replace('win-','');$$('.window').forEach(x=>x.classList.toggle('active',x===w));taskbar()}})});
-$$('.window-bar').forEach(bar=>{const w=bar.closest('.window');let drag=null;bar.addEventListener('pointerdown',e=>{if(e.target.closest('button')||matchMedia('(max-width:700px)').matches)return;const r=w.getBoundingClientRect(),p=$('#workspace').getBoundingClientRect();drag={x:e.clientX,y:e.clientY,left:r.left-p.left,top:r.top-p.top};bar.setPointerCapture(e.pointerId);e.preventDefault()});bar.addEventListener('pointermove',e=>{if(!drag)return;const p=$('#workspace').getBoundingClientRect();const x=Math.max(8,Math.min(Math.max(8,p.width-w.offsetWidth-8),drag.left+e.clientX-drag.x));const y=Math.max(8,Math.min(Math.max(8,p.height-w.offsetHeight-8),drag.top+e.clientY-drag.y));w.style.setProperty('left',x+'px','important');w.style.setProperty('top',y+'px','important')});const stop=()=>drag=null;bar.addEventListener('pointerup',stop);bar.addEventListener('pointercancel',stop)});
+$$('.window-bar').forEach(bar=>{const w=bar.closest('.window');let drag=null;bar.addEventListener('pointerdown',e=>{if(e.target.closest('button')||matchMedia('(max-width:700px)').matches)return;const r=w.getBoundingClientRect(),p=$('#workspace').getBoundingClientRect();drag={x:e.clientX,y:e.clientY,left:r.left-p.left,top:r.top-p.top};bar.setPointerCapture(e.pointerId);e.preventDefault()});bar.addEventListener('pointermove',e=>{if(!drag)return;const p=$('#workspace').getBoundingClientRect();const x=Math.max(0,Math.min(p.width-w.offsetWidth,drag.left+e.clientX-drag.x));const y=Math.max(0,Math.min(p.height-w.offsetHeight,drag.top+e.clientY-drag.y));w.style.left=x+'px';w.style.top=y+'px'});const stop=()=>drag=null;bar.addEventListener('pointerup',stop);bar.addEventListener('pointercancel',stop)});
 const artists=[['MAIKEL','2T1zM7AtA0Cd9u1m3PBFEY','INDIE / AFTER HOURS'],['MOE','2Odi4EJdB2wFUTMWNCxJ7T','INDIE / FEELINGS'],['FRISO','4xAMTJFCMfH1AZNQexkYEt','INDIE / MIDNIGHT'],['TOOLOUDFORTHEROOM','74DOh9R3aqr9X9hQ3qsmwO','LOUD / HEART'],['YEAT','3qiHUAX7zY4Qnjx8TNUzVx','WILDCARD / CHAOS'],['MAURER','2Mz4xppLRLkIsvMFb9STKO','GROOVE TECHNO'],['YANAMASTE','6zRdaJArenH7DjolPTm6hY','GROOVE TECHNO']];
 const rec=$('#records');for(const [name,id,tag] of artists){const item=document.createElement('button');item.type='button';item.className='record';item.dataset.spotify='spotify:artist:'+id;item.dataset.label=name;item.innerHTML='<span class="record-art" aria-hidden="true"></span><span class="record-copy"><span class="record-name"></span><span class="record-tag"></span><span class="record-play">IM Roni.Universe SPIELEN ▸</span></span>';$('.record-name',item).textContent=name;$('.record-tag',item).textContent=tag;item.setAttribute('aria-label',name+' im Roni.Universe-Player abspielen');rec.appendChild(item)}
 $('#enter').addEventListener('click',()=>{$('#boot').classList.add('hidden');$('#system').classList.remove('hidden');toast('WELCOME BACK, RONI. LEVEL 24 UNLOCKED.');setTimeout(()=>open('message'),550)});
