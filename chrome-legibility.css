@@ -1,0 +1,41 @@
+
+/* Explicit chrome filigree in visible foreground, but never covering controls. */
+.boot-main,.desktop-copy{position:relative;isolation:isolate}
+.chrome-heading-accent{position:absolute;pointer-events:none;z-index:2;
+ width:clamp(100px,17vw,240px);height:clamp(150px,22vw,290px);
+ right:-5%;top:-15%;
+ background:url('chrome-filigree-cutout.png') 96% 22%/290% auto no-repeat;
+ opacity:.88;filter:drop-shadow(0 0 9px #c8a3ff7a) drop-shadow(0 0 20px #a315ff44);
+ -webkit-mask-image:linear-gradient(to left,#000 0%,#000 50%,transparent 100%);
+ mask-image:linear-gradient(to left,#000 0%,#000 50%,transparent 100%);
+}
+.desktop-copy .chrome-heading-accent{right:-3%;top:-23%;transform:scaleX(-1) rotate(-8deg);opacity:.8}
+.boot-main h1,.desktop-copy h2{position:relative;z-index:3}
+.window{isolation:isolate}
+.chrome-window-corner{position:absolute;z-index:4;pointer-events:none;right:-4px;top:24px;
+ width:92px;height:106px;background:url('chrome-filigree-cutout.png') 97% 13%/310% auto no-repeat;
+ opacity:.64;filter:drop-shadow(0 0 8px #bd58ff77);
+ -webkit-mask-image:linear-gradient(225deg,#000 5%,#0009 48%,transparent 90%);
+ mask-image:linear-gradient(225deg,#000 5%,#0009 48%,transparent 90%);
+}
+.window::after{content:"";position:absolute;left:13px;bottom:13px;width:52px;height:52px;
+ z-index:3;pointer-events:none;
+ background:url('chrome-silver.png') center/contain no-repeat;opacity:.35;
+ filter:drop-shadow(0 0 9px #b953ff55);
+}
+.window-bar{padding-right:52px!important}
+.app-icon.laundry-app>span:last-child{font-size:11px!important;letter-spacing:.025em!important;
+ line-height:1.45!important;word-break:normal!important;overflow-wrap:normal!important;
+ text-align:center!important;white-space:normal!important;hyphens:none!important;
+ max-width:118px!important}
+.app-icon.laundry-app{min-width:124px!important}
+#win-beat h3{font-size:clamp(23px,3.5vw,40px)!important;line-height:1.15!important;
+ letter-spacing:-.045em!important;overflow-wrap:normal!important;word-break:normal!important}
+#win-beat .metal{display:inline-block}
+@media(max-width:700px){
+ .chrome-heading-accent{width:95px;height:125px;right:0;top:-10%;opacity:.57}
+ .chrome-window-corner{width:58px;height:72px;top:29px;opacity:.47}
+ .window::after{width:35px;height:35px;opacity:.22}
+ .app-icon.laundry-app{min-width:105px!important}
+ .app-icon.laundry-app>span:last-child{font-size:10px!important}
+}
