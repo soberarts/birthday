@@ -3,7 +3,7 @@ Roni.Universe — Neon Chrome Edition
 Dies ist die aktuelle Website mit dem bisherigen Inhalt, den Songs, Spielen und eigenen Änderungen.
 
 NEU
-- RONI.OS und RONI.FM als sichtbare Markenbezeichnungen zu Roni.Universe vereinheitlicht
+- Roni.Universe und Roni.Universe als sichtbare Markenbezeichnungen zu Roni.Universe vereinheitlicht
 - Neue Dateibezeichnung Roni.Universe_Neon_Chrome_Edition.zip
 - Kräftigeres neon-violettes Licht und stärkeres Silber-Chrome bei Überschriften
 - Dezente Chrome-Ornamente an Überschriften und Fensterrändern

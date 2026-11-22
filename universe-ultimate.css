@@ -1,0 +1,64 @@
+
+/* Roni.Universe — BLACK / ULTRAVIOLET / CHROME (additional final layer) */
+:root{--purple:#d447ff!important;--pink:#fc4bff!important;--line:#b43dff55!important}
+html,body,.system,.workspace{background-color:#010103!important}
+.boot{background:radial-gradient(ellipse at 68% 42%,#2b0049 0%,#090010 34%,#010103 76%)!important}
+.workspace{background:radial-gradient(ellipse at 58% 44%,#6b009b23,transparent 47%),#010103!important}
+.ambient-one,.ambient-two{opacity:.46!important;mix-blend-mode:screen!important}
+.boot h1,.desktop-copy h2{
+  font-family:'Syne',sans-serif!important;
+  font-weight:800!important;
+  font-stretch:condensed;
+  letter-spacing:-.10em!important;
+  line-height:.89!important;
+  text-transform:uppercase;
+  filter:drop-shadow(0 0 12px #ae00ff33);
+}
+.boot h1 .purple,.desktop-copy h2 .purple,.boot h1 .violet,.desktop-copy h2 .violet{
+  color:#ef72ff!important;text-shadow:0 0 7px #dd32ffbb,0 0 27px #9b00ff88,0 0 62px #7900cc4f!important;
+}
+.boot h1 .metal,.desktop-copy h2 .metal,.window-content h3 .metal{
+  background:linear-gradient(155deg,#fff 4%,#7e778a 13%,#faf9ff 22%,#36313e 33%,#fff 45%,#5d5368 57%,#f9f7ff 70%,#8b829a 81%,#fff 92%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+.universe-chrome-frame{
+  position:absolute;pointer-events:none;z-index:-1;
+  object-fit:contain;mix-blend-mode:screen;opacity:.36;
+  filter:drop-shadow(0 0 20px #d24dff50);
+}
+.boot-main,.desktop-copy{isolation:isolate}
+.boot-main>.universe-chrome-frame{
+  width:min(37vw,450px);height:min(43vw,520px);
+  left:-13%;top:-18%;transform:rotate(-12deg);
+  -webkit-mask-image:linear-gradient(90deg,#000,transparent 86%);
+  mask-image:linear-gradient(90deg,#000,transparent 86%);
+}
+.desktop-copy>.universe-chrome-frame{
+  width:clamp(250px,40vw,620px);height:clamp(280px,46vw,680px);
+  left:-17%;top:-45%;transform:rotate(-12deg);
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,#0009 40%,transparent 90%);
+  mask-image:linear-gradient(90deg,#000 0%,#0009 40%,transparent 90%);
+}
+.window-content{position:relative;isolation:isolate}
+.universe-window-chrome{
+  position:absolute;right:0;top:0;width:110px;height:150px;z-index:-1;
+  pointer-events:none;opacity:.2;mix-blend-mode:screen;
+  background:url('chrome-filigree-cutout.png') 80% 20%/contain no-repeat;
+  -webkit-mask-image:linear-gradient(270deg,#000,transparent);
+  mask-image:linear-gradient(270deg,#000,transparent);
+}
+.window{border:1px solid #c74bff80!important;background:#08030eeF!important}
+.window.active{border-color:#ef99ff!important;box-shadow:0 25px 85px #000e,0 0 36px #bd00ff40!important}
+.window-bar{background:linear-gradient(110deg,#390051,#170321 65%,#280139)!important}
+.primary{background:linear-gradient(125deg,#f9c4ff,#dd56ff 38%,#9c04eb 100%)!important;box-shadow:0 0 22px #b900ff52!important}
+.primary:hover{box-shadow:0 0 22px #d32dff,0 0 50px #b900ff70!important}
+.app-icon:hover{box-shadow:0 0 22px #ba00ff66!important;border-color:#d44fff!important}
+.topcenter i{background:#caff57!important;box-shadow:0 0 10px #caff57!important}
+.boot-bottom span:last-child,.status-strip span:last-child{color:#caff57!important}
+.boot .boot-kicker .signal{background:#caff57!important;box-shadow:0 0 12px #caff57!important}
+@media(max-width:700px){
+ .boot-main>.universe-chrome-frame{width:210px;height:230px;left:-15%;top:-13%;opacity:.25}
+ .desktop-copy>.universe-chrome-frame{width:240px;height:260px;left:-17%;top:-27%;opacity:.22}
+ .universe-window-chrome{width:72px;height:100px}
+}
+@media(prefers-reduced-motion:reduce){.universe-chrome-frame{animation:none!important}}
