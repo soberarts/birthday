@@ -256,10 +256,8 @@
   });
   const icon = $('#gameIcon'); if (icon) icon.addEventListener('click', () => openGame(false));
 
-  /* idle → screensaver (attract mode) */
-  let idleT;
-  function resetIdle() { clearTimeout(idleT); if (open || reduced) return; idleT = setTimeout(() => { if (!(R().isBusy && R().isBusy()) && $('#boot').classList.contains('hidden') && $('#takeover').classList.contains('hidden') && !document.hidden) openGame(true); else resetIdle(); }, 60000); }
-  ['pointermove', 'pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(ev => document.addEventListener(ev, () => { if (!open) resetIdle(); }, { passive: true }));
-  resetIdle();
+  /* Automatic idle/screensaver launch intentionally disabled.
+     WASCHKÜCHE remains available exclusively by clicking its desktop icon. */
+  function resetIdle() {}
   window.RONI = Object.assign(window.RONI || {}, { openGame });
 })();

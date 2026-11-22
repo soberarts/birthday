@@ -1,0 +1,59 @@
+
+/* 3D chrome typography with extruded shadows, retaining selectable real text. */
+.boot h1,.desktop-copy h2{
+  font-family:'Syne', 'Arial Black',sans-serif!important;
+  font-weight:800!important;
+  letter-spacing:-.085em!important;
+  line-height:.98!important;
+  -webkit-text-stroke:.7px rgba(255,255,255,.32);
+  text-shadow:
+    0 1px 0 #ece3fa,
+    0 2px 0 #aa8eb9,
+    0 3px 0 #786481,
+    0 4px 0 #4c3b57,
+    0 5px 0 #33273d,
+    0 6px 0 #251d30,
+    0 8px 0 #150f1d,
+    0 11px 2px #050308,
+    0 17px 14px #000,
+    0 0 27px #bd1fff6b!important;
+}
+.boot h1 .metal,.desktop-copy h2 .metal{
+  -webkit-text-stroke:1px #d4b8e5!important;
+  filter:drop-shadow(2px 3px 0 #62536f) drop-shadow(4px 5px 0 #24172e) drop-shadow(0 0 16px #ba30ff77)!important;
+}
+.window-content h3{
+  font-family:'Syne','Arial Black',sans-serif!important;
+  font-weight:800!important;
+  line-height:1.13!important;
+  letter-spacing:-.048em!important;
+  overflow-wrap:normal!important;
+  word-break:keep-all!important;
+  text-shadow:0 1px #e4d3f3,0 2px #6f597d,0 3px #2e2239,0 5px 9px #000,0 0 17px #9c12e455!important;
+}
+.window-content h3 .metal{
+  display:inline-block;
+  filter:drop-shadow(1px 2px 0 #554765) drop-shadow(2px 3px 0 #201727)!important;
+}
+#win-beat h3{
+  font-size:clamp(23px,3vw,38px)!important;
+  line-height:1.22!important;
+  letter-spacing:-.045em!important;
+  max-width:100%!important;
+  overflow:visible!important;
+  white-space:normal!important;
+  hyphens:none!important;
+}
+#win-beat h3 .metal{white-space:nowrap!important}
+.app-icon[data-open="beat"]>span:last-child,.app-icon[data-open="screensaver"]>span:last-child{
+  font-size:10px!important;line-height:1.5!important;
+  text-align:center!important;letter-spacing:0!important;
+  overflow-wrap:normal!important;word-break:keep-all!important;
+  hyphens:none!important;white-space:normal!important;
+}
+.app-icon[data-open="beat"] .beatmaker-label{display:block;max-width:145px;overflow-wrap:normal!important}
+@media(max-width:680px){
+ .boot h1,.desktop-copy h2{letter-spacing:-.07em!important;-webkit-text-stroke:.3px #d9b7e766;
+ text-shadow:0 1px #b8a4c4,0 2px #6a5578,0 3px #302439,0 6px 7px #000,0 0 15px #9b12f866!important}
+ #win-beat h3{font-size:clamp(21px,5.2vw,30px)!important}
+}
