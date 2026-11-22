@@ -1,4 +1,4 @@
-/* RONI.OS — 3D Chrome-Techno-Maus (Three.js).
+/* Roni.Universe — 3D Chrome-Techno-Maus (Three.js).
    Mounts on every <canvas data-mouse3d="dj|mini|creator">, dances on `roni:beat`,
    follows the config from MAUS-CREATOR (`roni:mouse-updated`, `roni:creator-preview`). */
 import * as THREE from 'three';

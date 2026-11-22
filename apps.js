@@ -1,4 +1,4 @@
-/* RONI.OS apps: MAUS-CREATOR.EXE, WASCHKÜCHEN-BEATMAKER, 24 KERZEN AUSPUSTEN */
+/* Roni.Universe apps: MAUS-CREATOR.EXE, WASCHKÜCHEN-BEATMAKER, 24 KERZEN AUSPUSTEN */
 (() => {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -143,7 +143,7 @@
       else { const dens = { kick: 0.3, clap: 0.15, hat: 0.45, squeak: 0.12, bass: 0.3 }; for (const t of TRACKS) pat[t.id] = Array.from({ length: 16 }, (_, i) => (t.id === 'kick' && i % 4 === 0) || Math.random() < dens[t.id] ? 1 : 0); say('ZUFALLSWASCHGANG: ' + pick(['60° BUNTWÄSCHE', 'KOCHWÄSCHE DELUXE', 'WOLLE / HANDWÄSCHE / HARDTEKK', 'SCHNELLWASCHGANG 15 MIN']) + '.'); }
       paint(); save();
     }));
-    // stop the beatmaker when RONI.FM starts playing again
+    // stop the beatmaker when Roni.Universe starts playing again
     document.addEventListener('click', e => { if (playing && e.target && e.target.closest && e.target.closest('[data-play-toggle],[data-spotify]')) stop(); });
     document.querySelectorAll('[data-close="beat"]').forEach(b => b.addEventListener('click', () => playing && stop()));
   }
@@ -180,7 +180,7 @@
     function celebrate() {
       if (done) return; done = true; stopMic();
       $('#cakeStatus').textContent = 'ALLE 24 AUS! WÜNSCH DIR WAS. (NICHT, DASS DIE MAUS AUSZIEHT.)';
-      say('WUNSCH REGISTRIERT. FRITTY-PC LEITET IHN AN DIE WASCHKÜCHE WEITER.');
+      say('WUNSCH REGISTRIERT. Frittys-PC LEITET IHN AN DIE WASCHKÜCHE WEITER.');
       confetti();
       if (R().runMouse) { R().runMouse('conga'); setTimeout(() => R().runMouse('dance'), 2500); }
       for (let i = 0; i < 6; i++) setTimeout(() => R().beat && R().beat(), i * 420);

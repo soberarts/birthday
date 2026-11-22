@@ -40,7 +40,7 @@
   let pets = +(localStorage.getItem('roni.ahri') || 0) || 0;
   function pet(el) {
     pets++; try { localStorage.setItem('roni.ahri', pets); } catch (e) {}
-    say(pets === 1 ? 'AHRI GESTREICHELT. SCHNURRRRR. FRITTY-PC IST NEIDISCH.' : pick(['SCHNURRRRR. (' + pets + 'x GESTREICHELT)', 'AHRI AKZEPTIERT DICH. VORERST.', 'STREICHELN ERLAUBT. KOSTET 1 LECKERLI.', 'AHRI SCHNURRT IM TAKT. 128 BPM.', 'AHRI FINDET: DIE MAUS DARF BLEIBEN. HEUTE.']));
+    say(pets === 1 ? 'AHRI GESTREICHELT. SCHNURRRRR. Frittys-PC IST NEIDISCH.' : pick(['SCHNURRRRR. (' + pets + 'x GESTREICHELT)', 'AHRI AKZEPTIERT DICH. VORERST.', 'STREICHELN ERLAUBT. KOSTET 1 LECKERLI.', 'AHRI SCHNURRT IM TAKT. 128 BPM.', 'AHRI FINDET: DIE MAUS DARF BLEIBEN. HEUTE.']));
     const r = el.getBoundingClientRect();
     for (let i = 0; i < 5; i++) {
       const h = document.createElement('span'); h.className = 'ahri-heart'; h.textContent = '♥';
