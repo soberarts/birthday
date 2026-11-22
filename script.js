@@ -64,7 +64,28 @@ let chatIndex=0;const lines=[['DJ_LUIGI','SOMEONE TURN UP THE BASS'],['MOE_FAN',
 
  /* ---------- local playback ---------- */
  function setMode(m){mode=m;document.documentElement.dataset.music=m;const playing=m==='local';$$('[data-play-toggle]').forEach(b=>{b.innerHTML=playing?ICON_PAUSE:ICON_PLAY;b.setAttribute('aria-label',playing?'Musik pausieren':'Musik abspielen')});$('#nowKicker').textContent=m==='idle'?'STANDBY':m==='local'?'NOW PLAYING / LOCAL':'NOW PLAYING / SPOTIFY';$('#radioToggle').classList.toggle('live',m!=='idle');$('#djQuote').textContent=pick(m==='idle'?IDLE_QUOTES:QUOTES);if(m==='idle')$('#bpmText').textContent='— BPM'}
- function playLocal(){initAudio();if(ctx&&ctx.state==='suspended')ctx.resume();if(spotify.ctrl&&spotify.playing)spotify.ctrl.pause();$('#nowTitle').textContent='BIRTHDAY TRACK';return audio.play().then(()=>setMode('local'))}
+ const birthdayAudio=$('#birthdayAudio');
+ let birthdayActive=false, resumeBackground=false;
+ const backgroundTitle=()=>audio.src.includes('yeat-myself.mp3')?'YEAT — MYSËLF':'KLAPS — L FOOT R FOOT';
+ // Yeat is the intro; the previous background track repeats after it finishes.
+ audio.addEventListener('ended',()=>{
+   if(audio.src.includes('yeat-myself.mp3')){
+     audio.src='birthday-track.mp3';audio.loop=true;audio.load();
+     if(!birthdayActive)playLocal().catch(()=>say('MUSIK KANN NICHT AUTOMATISCH STARTEN. PLAY DRÜCKEN.'));
+   }
+ });
+ function playLocal(){initAudio();if(ctx&&ctx.state==='suspended')ctx.resume();if(spotify.ctrl&&spotify.playing)spotify.ctrl.pause();
+   if(birthdayActive){birthdayAudio.pause();birthdayActive=false;}
+   $('#nowTitle').textContent=backgroundTitle();return audio.play().then(()=>setMode('local'))}
+ birthdayAudio.volume=.18;
+ const birthdayBtn=$('#birthdayTrackBtn');
+ birthdayBtn.addEventListener('click',()=>{
+   if(birthdayActive){birthdayAudio.pause();birthdayActive=false;birthdayBtn.innerHTML='LASS LOS — TOOLOUDFORTHEROOM <span>▸</span>';if(resumeBackground)playLocal().catch(()=>{});return}
+   resumeBackground=!audio.paused;audio.pause();if(spotify.ctrl&&spotify.playing)spotify.ctrl.pause();
+   birthdayAudio.currentTime=0;birthdayAudio.play().then(()=>{birthdayActive=true;setMode('idle');$('#nowTitle').textContent='TOOLOUDFORTHEROOM — LASS LOS';birthdayBtn.textContent='LASS LOS PAUSIEREN Ⅱ';say('BIRTHDAY TRACK: LASS LOS')}).catch(()=>{if(resumeBackground)playLocal().catch(()=>{});say('BROWSER BLOCKIERT AUDIO. NOCHMAL KLICKEN.')});
+ });
+ birthdayAudio.addEventListener('ended',()=>{birthdayActive=false;birthdayBtn.innerHTML='LASS LOS — TOOLOUDFORTHEROOM <span>▸</span>';if(resumeBackground)playLocal().catch(()=>{});});
+
  function pauseLocal(){audio.pause();if(mode==='local')setMode('idle')}
  $$('[data-play-toggle]').forEach(b=>b.addEventListener('click',()=>{if(mode==='local')pauseLocal();else{showTab('local');playLocal().catch(()=>say('BROWSER SAGT NEIN. NOCHMAL KLICKEN.'))}}));
  audio.addEventListener('pause',()=>{if(mode==='local')setMode('idle')});
